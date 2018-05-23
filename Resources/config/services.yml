@@ -1,0 +1,22 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    UserBundle\:
+        resource: '../../*'
+        exclude: '../../{Entity}'
+
+    UserBundle\Controller\:
+        resource: '../../Controller'
+        tags: ['controller.service_arguments']
+
+    UserBundle\Doctrine\UserManager:
+        public: true
+        arguments:
+            $class: UserBundle\Entity\User
+        calls:
+            - method: setEncoder
+              arguments:
+                  - '@security.password_encoder'
