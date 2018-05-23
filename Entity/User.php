@@ -9,12 +9,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity()
+ * @ORM\MappedSuperclass()
  *
  * @UniqueEntity(fields={"username"})
  * @UniqueEntity(fields={"email"})
  */
-class User implements UserInterface, EquatableInterface
+abstract class User implements UserInterface, EquatableInterface
 {
     /**
      * @var int
@@ -80,7 +80,7 @@ class User implements UserInterface, EquatableInterface
         $this->salt = base64_encode(random_bytes(30));
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }

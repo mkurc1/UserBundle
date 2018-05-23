@@ -15,7 +15,7 @@ services:
     UserBundle\Doctrine\UserManager:
         public: true
         arguments:
-            $class: UserBundle\Entity\User
+            $class: '%user.user_class%'
         calls:
             - method: setEncoder
               arguments:
