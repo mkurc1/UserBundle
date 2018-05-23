@@ -1,9 +1,9 @@
 <?php
 
-namespace App\UserBundle\Security;
+namespace UserBundle\Security;
 
-use App\UserBundle\Doctrine\UserManager;
-use App\UserBundle\Entity\User;
+use UserBundle\Doctrine\UserManager;
+use UserBundle\Entity\User;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;

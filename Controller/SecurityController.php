@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UserBundle\Controller;
+namespace UserBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,7 +23,7 @@ class SecurityController extends Controller
 
         return $this->render('@User/security/login.html.twig', [
             'last_username' => $lastUsername,
-            'error'         => $error,
+            'error'         => $error
         ]);
     }
 }

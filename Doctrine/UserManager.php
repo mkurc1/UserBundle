@@ -1,9 +1,9 @@
 <?php
 
-namespace App\UserBundle\Doctrine;
+namespace UserBundle\Doctrine;
 
 use CoreBundle\Doctrine\AbstractManager;
-use App\UserBundle\Entity\User;
+use UserBundle\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 

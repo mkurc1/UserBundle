@@ -1,8 +1,8 @@
 <?php
 
-namespace App\UserBundle\Command;
+namespace UserBundle\Command;
 
-use App\UserBundle\Doctrine\UserManager;
+use UserBundle\Doctrine\UserManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
