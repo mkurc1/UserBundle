@@ -1,0 +1,20 @@
+{
+    "name": "mkurc1/user-bundle",
+    "description": "User Bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michał Kurcewicz",
+            "email": "mkurc1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "UserBundle\\": ""
+        }
+    },
+    "require": {
+        "php": ">=7.2"
+    }
+}
