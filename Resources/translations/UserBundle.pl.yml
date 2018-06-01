@@ -1,0 +1,6 @@
+security:
+    login:
+        username: Nazwa użytkownika
+        password: Hasło
+        remember_me: Nie wylogowuj mnie
+        submit: Zaloguj

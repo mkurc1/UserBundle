@@ -1,0 +1,6 @@
+security:
+    login:
+        username: Username
+        password: Passowrd
+        remember_me: Remember me
+        submit: Log in
