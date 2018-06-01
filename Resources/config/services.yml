@@ -20,3 +20,7 @@ services:
             - method: setEncoder
               arguments:
                   - '@security.password_encoder'
+
+    UserBundle\Security\UserProvider:
+        arguments:
+            $class: '%user.user_class%'

@@ -16,9 +16,15 @@ class UserProvider implements UserProviderInterface
      */
     private $userManager;
 
-    public function __construct(UserManager $userManager)
+    /**
+     * @var string
+     */
+    private $class;
+
+    public function __construct(UserManager $userManager, string $class)
     {
         $this->userManager = $userManager;
+        $this->class = $class;
     }
 
     /**
@@ -83,6 +89,6 @@ class UserProvider implements UserProviderInterface
      */
     public function supportsClass($class): bool
     {
-        return User::class === $class;
+        return $this->class === $class;
     }
 }
