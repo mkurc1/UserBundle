@@ -3,6 +3,7 @@
 namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use CoreBundle\Entity\Traits\PrimaryKeyEntityTrait;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -16,14 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 abstract class User implements UserInterface, EquatableInterface
 {
-    /**
-     * @var int
-     *
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use PrimaryKeyEntityTrait;
 
     /**
      * @var string
@@ -78,11 +72,6 @@ abstract class User implements UserInterface, EquatableInterface
     public function __construct()
     {
         $this->salt = base64_encode(random_bytes(30));
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
     }
 
     /**
