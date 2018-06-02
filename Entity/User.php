@@ -4,6 +4,7 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use CoreBundle\Entity\Traits\PrimaryKeyEntityTrait;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -18,6 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 abstract class User implements UserInterface, EquatableInterface
 {
     use PrimaryKeyEntityTrait;
+    use TimestampableEntity;
 
     /**
      * @var string
