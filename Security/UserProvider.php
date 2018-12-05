@@ -21,6 +21,7 @@ class UserProvider implements UserProviderInterface
      */
     private $class;
 
+
     public function __construct(UserManager $userManager, string $class)
     {
         $this->userManager = $userManager;

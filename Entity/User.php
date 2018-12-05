@@ -73,7 +73,7 @@ abstract class User implements UserInterface, EquatableInterface
 
     public function __construct()
     {
-        $this->salt = base64_encode(random_bytes(30));
+        $this->salt = \base64_encode(\random_bytes(30));
     }
 
     /**

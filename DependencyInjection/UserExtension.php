@@ -18,6 +18,7 @@ class UserExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('user.user_class', $config['user_class']);
+        $container->setParameter('user.login.default_target_path', $config['login']['default_target_path']);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');

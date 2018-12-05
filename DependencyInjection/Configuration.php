@@ -18,6 +18,11 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('user_class')->cannotBeEmpty()->end()
+                ->arrayNode('login')
+                    ->children()
+                        ->scalarNode('default_target_path')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
