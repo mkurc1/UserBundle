@@ -27,9 +27,9 @@ abstract class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=50, unique=true)
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min="1", max="50")
+     * @Assert\Length(min="2", max="50")
      */
-    private $username;
+    private $username = '';
 
     /**
      * @var string
@@ -40,14 +40,14 @@ abstract class User implements UserInterface, EquatableInterface
      * @Assert\Length(min="5", max="100")
      * @Assert\Email(strict="true")
      */
-    private $email;
+    private $email = '';
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=255)
      */
-    private $password;
+    private $password = '';
 
     /**
      * @var string

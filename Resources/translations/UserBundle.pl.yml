@@ -1,6 +1,13 @@
-security:
-    login:
-        username: Nazwa użytkownika
-        password: Hasło
-        remember_me: Nie wylogowuj mnie
-        submit: Zaloguj
+login:
+    username: Nazwa użytkownika
+    password: Hasło
+    remember_me: Nie wylogowuj mnie
+    submit: Zaloguj
+registration:
+    email: Email
+    username: Nazwa użytkownik
+    password: Hasło
+    password_confirmation: Powtórz hasło
+    register:
+        successfully: Twoje konto zostało utworzone pomyślnie. Czekaj na email z linkiem aktywacyjnym.
+    submit: Utwórz konto

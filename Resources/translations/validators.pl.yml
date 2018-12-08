@@ -1,0 +1,3 @@
+registration:
+    password:
+        mismatch: Hasła się nie są takie same.

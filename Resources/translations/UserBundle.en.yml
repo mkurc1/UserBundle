@@ -1,6 +1,13 @@
-security:
-    login:
-        username: Username
-        password: Passowrd
-        remember_me: Remember me
-        submit: Log in
+login:
+    username: Username
+    password: Passowrd
+    remember_me: Remember me
+    submit: Log in
+registration:
+    email: Email
+    username: Username
+    password: Password
+    password_confirmation: Repeat password
+    register:
+        successfully: Your account was created successfully. Wait for email with confirmation link.
+    submit: Create account
