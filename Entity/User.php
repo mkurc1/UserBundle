@@ -46,6 +46,8 @@ abstract class User implements UserInterface, EquatableInterface
      * @var string
      *
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $password = '';
 
@@ -69,6 +71,13 @@ abstract class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="boolean")
      */
     private $enabled = false;
+
+    /**
+     * @var bool
+     *
+     * @Assert\IsTrue()
+     */
+    private $acceptRegulation = false;
 
 
     public function __construct()
@@ -124,9 +133,9 @@ abstract class User implements UserInterface, EquatableInterface
      * @param string $password
      * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword(?string $password): User
     {
-        $this->password = $password;
+        $this->password = $password ?: '';
         return $this;
     }
 
@@ -241,5 +250,21 @@ abstract class User implements UserInterface, EquatableInterface
 
     public function eraseCredentials()
     {
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAcceptRegulation(): bool
+    {
+        return $this->acceptRegulation;
+    }
+
+    /**
+     * @param bool $acceptRegulation
+     */
+    public function setAcceptRegulation(bool $acceptRegulation): void
+    {
+        $this->acceptRegulation = $acceptRegulation;
     }
 }

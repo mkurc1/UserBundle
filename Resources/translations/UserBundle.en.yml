@@ -4,10 +4,11 @@ login:
     remember_me: Remember me
     submit: Log in
 registration:
-    email: Email
+    email: Email address
     username: Username
     password: Password
     password_confirmation: Repeat password
+    accept_regulation: Accept regulation
     register:
         successfully: Your account was created successfully. Wait for email with confirmation link.
     submit: Create account

@@ -3,11 +3,13 @@
 namespace UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use UserBundle\Entity\User;
 
 class RegistrationType extends AbstractType
@@ -19,10 +21,12 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'registration.email'
+                'label'      => 'registration.email',
+                'empty_data' => ''
             ])
             ->add('username', null, [
-                'label' => 'registration.username'
+                'label'      => 'registration.username',
+                'empty_data' => ''
             ])
             ->add('password', RepeatedType::class, [
                 'type'            => PasswordType::class,
@@ -33,6 +37,9 @@ class RegistrationType extends AbstractType
                     'label' => 'registration.password_confirmation'
                 ],
                 'invalid_message' => 'registration.password.mismatch'
+            ])
+            ->add('acceptRegulation', CheckboxType::class, [
+                'label' => 'registration.accept_regulation'
             ]);
     }
 

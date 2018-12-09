@@ -8,6 +8,7 @@ registration:
     username: Nazwa użytkownik
     password: Hasło
     password_confirmation: Powtórz hasło
+    accept_regulation: Akceptuję regulamin
     register:
         successfully: Twoje konto zostało utworzone pomyślnie. Czekaj na email z linkiem aktywacyjnym.
     submit: Utwórz konto
