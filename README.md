@@ -38,6 +38,7 @@ Create file config/packages/user.yaml:
 
     user:
         user_class: App\Entity\User
+        sender_email: "%env(USER_SENDER_EMAIL)%"
         login:
             default_target_path: dashboard # default router after login
         
