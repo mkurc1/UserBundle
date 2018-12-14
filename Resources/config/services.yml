@@ -28,3 +28,7 @@ services:
     UserBundle\Security\LoginFormAuthenticator:
         arguments:
             $defaultTargetPath: '%user.login.default_target_path%'
+
+    UserBundle\Service\Mailer:
+        arguments:
+            $senderEmail: '%user.sender_email%'

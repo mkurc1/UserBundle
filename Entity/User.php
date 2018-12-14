@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use UserBundle\Utility\TokenGenerator;
 
 /**
  * @ORM\MappedSuperclass()
@@ -54,7 +55,7 @@ abstract class User implements UserInterface, EquatableInterface
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=100)
      */
     private $salt;
 
@@ -73,6 +74,13 @@ abstract class User implements UserInterface, EquatableInterface
     private $enabled = false;
 
     /**
+     * @var null|string
+     *
+     * @ORM\Column(type="string", nullable=true, length=100)
+     */
+    private $confirmationToken;
+
+    /**
      * @var bool
      *
      * @Assert\IsTrue()
@@ -82,7 +90,7 @@ abstract class User implements UserInterface, EquatableInterface
 
     public function __construct()
     {
-        $this->salt = \base64_encode(\random_bytes(30));
+        $this->salt = (new TokenGenerator())->generate();
     }
 
     /**
@@ -250,6 +258,22 @@ abstract class User implements UserInterface, EquatableInterface
 
     public function eraseCredentials()
     {
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getConfirmationToken(): ?string
+    {
+        return $this->confirmationToken;
+    }
+
+    /**
+     * @param null|string $confirmationToken
+     */
+    public function setConfirmationToken(?string $confirmationToken): void
+    {
+        $this->confirmationToken = $confirmationToken;
     }
 
     /**

@@ -10,7 +10,7 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('user');
@@ -18,6 +18,7 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('user_class')->cannotBeEmpty()->end()
+                ->scalarNode('sender_email')->cannotBeEmpty()->end()
                 ->arrayNode('login')
                     ->children()
                         ->scalarNode('default_target_path')->cannotBeEmpty()->end()

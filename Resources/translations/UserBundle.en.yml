@@ -11,4 +11,13 @@ registration:
     accept_regulation: Accept regulation
     register:
         successfully: Your account was created successfully. Wait for email with confirmation link.
+    confirm:
+        successfully: Your account was confirmed. You can already log in.
     submit: Create account
+email:
+    confirmation:
+        subject: Confirmation
+        header: You did it! You registered!
+        greeting: "Hi %username%! You're successfully registered."
+        confirm_url: 'To confirm your account, go to: <a href="%url%">Confirmation</a>.'
+        signature: Thanks!

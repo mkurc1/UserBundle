@@ -19,6 +19,21 @@ class UserManager extends AbstractManager
         $this->encoder = $encoder;
     }
 
+    public function findByConfirmationToken(string $token): ?User
+    {
+        return $this->findOneBy([
+            'confirmationToken' => $token
+        ]);
+    }
+
+    public function activateAccount(User $user): void
+    {
+        $user->setEnabled(true);
+        $user->setConfirmationToken(null);
+
+        $this->update($user);
+    }
+
     public function createUser(string $username, string $email, string $password): User
     {
         /** @var User $user */

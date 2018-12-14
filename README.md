@@ -92,6 +92,8 @@ Update config/packages/security.yaml:
         # Note: Only the *first* access control that matches will be used
         access_control:
             - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/confirm, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED }
 
                 

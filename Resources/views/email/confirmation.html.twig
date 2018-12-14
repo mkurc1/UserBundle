@@ -1,0 +1,7 @@
+<h3>{{ 'email.confirmation.header'|trans({}, 'UserBundle') }}</h3>
+
+{{ 'email.confirmation.greeting'|trans({'%username%': user.username}, 'UserBundle') }}
+
+{{ 'email.confirmation.confirm_url'|trans({'%url%': url('user_confirm', {'token': user.confirmationToken}, true)}, 'UserBundle') }}
+
+{{ 'email.confirmation.signature'|trans({}, 'UserBundle') }}
