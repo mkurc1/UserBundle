@@ -95,6 +95,7 @@ Update config/packages/security.yaml:
             - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/confirm, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED }
 
                 

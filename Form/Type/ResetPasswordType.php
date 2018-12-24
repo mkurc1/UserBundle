@@ -2,16 +2,14 @@
 
 namespace UserBundle\Form\Type;
 
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use UserBundle\Entity\User;
 
-class RegistrationType extends AbstractType
+class ResetPasswordType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,26 +17,15 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class, [
-                'label'      => 'registration.email',
-                'empty_data' => ''
-            ])
-            ->add('username', null, [
-                'label'      => 'registration.username',
-                'empty_data' => ''
-            ])
             ->add('password', RepeatedType::class, [
                 'type'            => PasswordType::class,
                 'first_options'   => [
-                    'label' => 'registration.password'
+                    'label' => 'resetting.reset_password.password'
                 ],
                 'second_options'  => [
-                    'label' => 'registration.password_confirmation'
+                    'label' => 'resetting.reset_password.password_confirmation'
                 ],
                 'invalid_message' => 'user.password.mismatch'
-            ])
-            ->add('acceptRegulation', CheckboxType::class, [
-                'label' => 'registration.accept_regulation'
             ]);
     }
 
@@ -49,8 +36,7 @@ class RegistrationType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class'         => User::class,
-            'translation_domain' => 'UserBundle',
-            'validation_groups' => ['Default', 'Regulation']
+            'translation_domain' => 'UserBundle'
         ]);
     }
 }

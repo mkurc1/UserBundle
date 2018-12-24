@@ -1,3 +1,4 @@
-registration:
+user:
+    not_found: Nie odnaleziono użytkownika.
     password:
         mismatch: Hasła się nie są takie same.

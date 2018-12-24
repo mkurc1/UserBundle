@@ -81,9 +81,23 @@ abstract class User implements UserInterface, EquatableInterface
     private $confirmationToken;
 
     /**
+     * @var null|\DateTime
+     *
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $resettingRequestAt;
+
+    /**
+     * @var null|string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $resettingRequestToken;
+
+    /**
      * @var bool
      *
-     * @Assert\IsTrue()
+     * @Assert\IsTrue(groups={"Regulation"})
      */
     private $acceptRegulation = false;
 
@@ -290,5 +304,37 @@ abstract class User implements UserInterface, EquatableInterface
     public function setAcceptRegulation(bool $acceptRegulation): void
     {
         $this->acceptRegulation = $acceptRegulation;
+    }
+
+    /**
+     * @return \DateTime|null
+     */
+    public function getResettingRequestAt(): ?\DateTime
+    {
+        return $this->resettingRequestAt;
+    }
+
+    /**
+     * @param \DateTime|null $resettingRequestAt
+     */
+    public function setResettingRequestAt(?\DateTime $resettingRequestAt): void
+    {
+        $this->resettingRequestAt = $resettingRequestAt;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getResettingRequestToken(): ?string
+    {
+        return $this->resettingRequestToken;
+    }
+
+    /**
+     * @param string|null $resettingRequestToken
+     */
+    public function setResettingRequestToken(?string $resettingRequestToken): void
+    {
+        $this->resettingRequestToken = $resettingRequestToken;
     }
 }

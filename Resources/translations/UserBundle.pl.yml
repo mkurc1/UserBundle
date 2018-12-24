@@ -14,10 +14,27 @@ registration:
     confirm:
         successfully: Twoje konto zostało potwierdzone. Możesz się już zalogować.
     submit: Utwórz konto
+username:
+    name: Nazwa użytkownika
+resetting:
+    request:
+        submit: Zresetuj hasło
+        successfully: Twoja nazwa użytkownika została rozpoznana. Czekaj na email z linkiem resetującym hasło.
+    reset_password:
+        submit: Zmień hasło
+        password: Hasło
+        password_confirmation: Powtórz hasło
+        successfully: Twoje hasło zostało zmienione. Możesz się już zalogować.
 email:
     confirmation:
         subject: Potwierdzenie założenia konta
         header: Udało się! Właśnie się zarejestrowałeś.
         greeting: "Cześć %username%! Twoja rejestracja przebiegła pomyślnie."
         confirm_url: 'Aby potwierdzić Twoje konto, kliknij poniższy: <a href="%url%">Link</a>.'
+        signature: Dzięki!
+    resetting:
+        subject: Resetowanie hasła
+        header: Resetowanie hasła
+        greeting: "Cześć %username%!"
+        confirm_url: 'Aby zresetować Twoje hasło, kliknij poniższy: <a href="%url%">Link</a>.'
         signature: Dzięki!

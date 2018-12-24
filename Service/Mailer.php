@@ -2,7 +2,6 @@
 
 namespace UserBundle\Service;
 
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use UserBundle\Entity\User;
 
@@ -48,13 +47,24 @@ class Mailer
         $this->sendEmailMessage($view, $subject, $user->getEmail());
     }
 
+    public function sendResetEmail(User $user): void
+    {
+        $subject = $this->translator->trans('email.resetting.subject', [], 'UserBundle');
+
+        $view = $this->templating->render('@User/email/resetting.html.twig', [
+            'user' => $user
+        ]);
+
+        $this->sendEmailMessage($view, $subject, $user->getEmail());
+    }
+
     protected function sendEmailMessage($view, string $subject, string $toEmail): void
     {
         $message = (new \Swift_Message())
             ->setSubject($subject)
             ->setFrom($this->senderEmail)
             ->setTo($toEmail)
-            ->setBody($view);
+            ->setBody($view, 'text/html');
 
         $this->mailer->send($message);
     }

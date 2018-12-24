@@ -14,10 +14,27 @@ registration:
     confirm:
         successfully: Your account was confirmed. You can already log in.
     submit: Create account
+username:
+    name: Username
+resetting:
+    request:
+        submit: Reset password
+        successfully: Your username was recognise successfully. Wait for email with reset password link.
+    reset_password:
+        submit: Change password
+        password: Password
+        password_confirmation: Repeat password
+        successfully: Your password was change successfully. You can already log in.
 email:
     confirmation:
         subject: Confirmation
         header: You did it! You registered!
         greeting: "Hi %username%! You're successfully registered."
         confirm_url: 'To confirm your account, go to: <a href="%url%">Confirmation</a>.'
+        signature: Thanks!
+    resetting:
+        subject: Resetting
+        header: Resetting password
+        greeting: "Hi %username%!"
+        confirm_url: 'To reset your password, go to: <a href="%url%">Reset</a>.'
         signature: Thanks!

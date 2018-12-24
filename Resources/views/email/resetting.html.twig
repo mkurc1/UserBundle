@@ -1,0 +1,7 @@
+<h3>{{ 'email.resetting.header'|trans({}, 'UserBundle') }}</h3>
+
+{{ 'email.resetting.greeting'|trans({'%username%': user.username}, 'UserBundle') }}
+
+{{ 'email.resetting.confirm_url'|trans({'%url%': url('user_change_password', {'token': user.resettingRequestToken})}, 'UserBundle') | raw }}
+
+{{ 'email.resetting.signature'|trans({}, 'UserBundle') }}

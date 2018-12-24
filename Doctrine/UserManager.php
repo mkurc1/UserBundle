@@ -26,6 +26,22 @@ class UserManager extends AbstractManager
         ]);
     }
 
+    public function findByResettingRequestToken(string $token): ?User
+    {
+        return $this->findOneBy([
+            'resettingRequestToken' => $token,
+            'enabled'               => true
+        ]);
+    }
+
+    public function findByUsername(string $username): ?User
+    {
+        return $this->findOneBy([
+            'username' => $username,
+            'enabled'  => true
+        ]);
+    }
+
     public function activateAccount(User $user): void
     {
         $user->setEnabled(true);
