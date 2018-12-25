@@ -25,6 +25,7 @@ class ResetPasswordHandler extends AbstractFormHandler
 
         $user->setPassword($this->userManager->encodePassword($user, $user->getPassword()));
         $user->setResettingRequestToken(null);
+        $user->setResettingRequestAt(null);
 
         $this->userManager->update($user);
 

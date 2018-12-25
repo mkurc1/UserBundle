@@ -22,10 +22,16 @@ class ResettingHandler extends AbstractFormHandler
      */
     private $translator;
 
-    public function __construct(UserManager $userManager, TranslatorInterface $translator)
+    /**
+     * @var int
+     */
+    private $ttl;
+
+    public function __construct(UserManager $userManager, TranslatorInterface $translator, int $ttl)
     {
         $this->userManager = $userManager;
         $this->translator = $translator;
+        $this->ttl = $ttl;
     }
 
     protected function doProcessForm(): bool
@@ -37,6 +43,13 @@ class ResettingHandler extends AbstractFormHandler
         $user = $this->userManager->findByUsername($username->getUsername());
         if (!$user) {
             $message = $this->translator->trans('user.not_found', [], 'validators');
+            $this->getForm()->get('username')->addError(new FormError($message));
+
+            return false;
+        }
+
+        if ($user->isResettingRequestNotExpired($this->ttl)) {
+            $message = $this->translator->trans('resetting.request.ttl', [], 'validators');
             $this->getForm()->get('username')->addError(new FormError($message));
 
             return false;

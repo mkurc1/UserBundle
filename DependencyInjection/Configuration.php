@@ -24,6 +24,11 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('default_target_path')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
+                ->arrayNode('resetting')
+                    ->children()
+                        ->scalarNode('ttl')->defaultValue(86400)->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

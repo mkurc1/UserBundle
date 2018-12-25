@@ -107,6 +107,12 @@ abstract class User implements UserInterface, EquatableInterface
         $this->salt = (new TokenGenerator())->generate();
     }
 
+    public function isResettingRequestNotExpired(int $ttl): bool
+    {
+        return null !== $this->getResettingRequestAt() &&
+            $this->getResettingRequestAt()->getTimestamp() + $ttl > \time();
+    }
+
     /**
      * @return string
      */

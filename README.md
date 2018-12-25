@@ -41,6 +41,8 @@ Create file config/packages/user.yaml:
         sender_email: "%env(USER_SENDER_EMAIL)%"
         login:
             default_target_path: dashboard # default router after login
+        resetting:
+            ttl: 86400 # 24 hours
         
 Add into config/routes.yaml:
 
