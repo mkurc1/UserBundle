@@ -18,7 +18,7 @@ username:
     name: Username
 resetting:
     request:
-        submit: Reset password
+        submit: Send reset link
         successfully: Your username was recognise successfully. Wait for email with reset password link.
     reset_password:
         submit: Change password

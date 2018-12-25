@@ -18,7 +18,7 @@ username:
     name: Nazwa użytkownika
 resetting:
     request:
-        submit: Zresetuj hasło
+        submit: Wyślij link do resetu hasła
         successfully: Twoja nazwa użytkownika została rozpoznana. Czekaj na email z linkiem resetującym hasło.
     reset_password:
         submit: Zmień hasło
