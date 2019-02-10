@@ -28,7 +28,8 @@ abstract class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=50, unique=true)
      *
      * @Assert\NotBlank()
-     * @Assert\Length(min="2", max="50")
+     * @Assert\Length(min="3", max="50")
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9_]+$/")
      */
     private $username = '';
 
