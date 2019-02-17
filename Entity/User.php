@@ -29,7 +29,7 @@ abstract class User implements UserInterface, EquatableInterface
      *
      * @Assert\NotBlank()
      * @Assert\Length(min="3", max="50")
-     * @Assert\Regex(pattern="/^[a-zA-Z0-9_]+$/")
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9_-]+$/")
      */
     private $username = '';
 
