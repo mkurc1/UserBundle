@@ -52,7 +52,7 @@ class ResettingController extends AbstractController
     {
         $user = $userManager->findByResettingRequestToken($token);
         if (!$user) {
-            throw new EntityNotFoundException();
+            throw $this->createNotFoundException();
         }
 
         $resetPasswordHandler->buildForm(ResetPasswordType::class, $user);
