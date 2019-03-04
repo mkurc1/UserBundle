@@ -2,7 +2,6 @@
 
 namespace UserBundle\Controller;
 
-use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,7 +44,7 @@ class RegistrationController extends AbstractController
     {
         $user = $userManager->findByConfirmationToken($token);
         if (!$user) {
-            throw new EntityNotFoundException();
+            throw $this->createNotFoundException();
         }
 
         $userManager->activateAccount($user);
