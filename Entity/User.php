@@ -50,6 +50,7 @@ abstract class User implements UserInterface, EquatableInterface
      * @ORM\Column(type="string", length=255)
      *
      * @Assert\NotBlank()
+     * @Assert\Length(min="6", max="100")
      */
     private $password = '';
 

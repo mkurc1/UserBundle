@@ -10,7 +10,7 @@ use UserBundle\Doctrine\UserManager;
 use UserBundle\Entity\User;
 use UserBundle\Form\Handler\ResetPasswordHandler;
 use UserBundle\Form\Handler\ResettingHandler;
-use UserBundle\Form\Model\Username;
+use UserBundle\Form\Model\UsernameModel;
 use UserBundle\Form\Type\ResetPasswordType;
 use UserBundle\Form\Type\UsernameType;
 use UserBundle\Service\Mailer;
@@ -25,7 +25,7 @@ class ResettingController extends AbstractController
      */
     public function request(ResettingHandler $resettingHandler, TranslatorInterface $translator, Mailer $mailer, UserManager $userManager): Response
     {
-        $username = new Username();
+        $username = new UsernameModel();
         $resettingHandler->buildForm(UsernameType::class, $username);
 
         if ($resettingHandler->isPostMethod() && $resettingHandler->process()) {

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% trans_default_domain 'UserBundle' %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">{{ 'change_password.submit'|trans }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

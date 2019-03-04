@@ -51,7 +51,7 @@ Add into config/routes.yaml:
         
 Add into config/routes/annotations.yaml:
 
-    securiry:
+    user:
         resource: ../../vendor/mkurc1/user-bundle/Controller/
         type: annotation
 

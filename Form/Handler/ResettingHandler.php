@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormError;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use UserBundle\Doctrine\UserManager;
 use UserBundle\Entity\User;
-use UserBundle\Form\Model\Username;
+use UserBundle\Form\Model\UsernameModel;
 use UserBundle\Utility\TokenGenerator;
 
 class ResettingHandler extends AbstractFormHandler
@@ -36,7 +36,7 @@ class ResettingHandler extends AbstractFormHandler
 
     protected function doProcessForm(): bool
     {
-        /** @var Username $username */
+        /** @var UsernameModel $username */
         $username = $this->getForm()->getData();
 
         /** @var User $user */

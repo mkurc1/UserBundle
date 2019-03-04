@@ -4,7 +4,7 @@ namespace UserBundle\Form\Model;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class Username
+class UsernameModel
 {
     /**
      * @var string

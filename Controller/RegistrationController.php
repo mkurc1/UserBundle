@@ -17,13 +17,13 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/register", name="user_register", methods={"GET", "POST"})
      */
-    public function register(UserManager $userManager, RegistrationHandler $registrationHandler, TranslatorInterface $translator, Mailer $mailer): Response
+    public function register(UserManager $userManager, RegistrationHandler $handler, TranslatorInterface $translator, Mailer $mailer): Response
     {
         /** @var User $user */
         $user = $userManager->create();
-        $registrationHandler->buildForm(RegistrationType::class, $user);
+        $handler->buildForm(RegistrationType::class, $user);
 
-        if ($registrationHandler->isPostMethod() && $registrationHandler->process()) {
+        if ($handler->isPostMethod() && $handler->process()) {
             $mailer->sendConfirmationEmail($user);
 
             $message = $translator->trans('registration.register.successfully', [], 'UserBundle');
@@ -33,7 +33,7 @@ class RegistrationController extends AbstractController
         }
 
         return $this->render('@User/registration/register.html.twig', [
-            'form' => $registrationHandler->createView()
+            'form' => $handler->createView()
         ]);
     }
 

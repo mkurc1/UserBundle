@@ -25,6 +25,13 @@ resetting:
         password: Password
         password_confirmation: Repeat password
         successfully: Your password was change successfully. You can already log in.
+change_password:
+    old_password: Old password
+    new_password: New Password
+    new_password_confirmation: Repeat new password
+    submit: Change password
+    change:
+        successfully: Your password was change successfully.
 email:
     confirmation:
         subject: Confirmation

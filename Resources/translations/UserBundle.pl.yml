@@ -25,6 +25,13 @@ resetting:
         password: Hasło
         password_confirmation: Powtórz hasło
         successfully: Twoje hasło zostało zmienione. Możesz się już zalogować.
+change_password:
+    old_password: Stare hasło
+    new_password: Nowe hasło
+    new_password_confirmation: Powtórz nowe hasło
+    submit: Zmień hasło
+    change:
+        successfully: Twoje hasło zostało zmienione.
 email:
     confirmation:
         subject: Potwierdzenie założenia konta
